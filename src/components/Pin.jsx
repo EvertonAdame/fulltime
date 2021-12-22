@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { urlFor, client } from "../cliente";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -10,7 +10,7 @@ import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 
-  const [savingPost, setSavingPost] = useState(false);
+
   const navigate = useNavigate();
   const user = fetchUser();
 
@@ -21,7 +21,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 
   const savePin = (id) => {
     if (!alreadySaved) {
-      setSavingPost(true);
+   
 
       client
         .patch(id)
@@ -39,7 +39,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         .commit()
         .then(() => {
           window.location.reload();
-          setSavingPost(false);
+          
         });
     }
   };
@@ -81,6 +81,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
               </div>
               {alreadySaved ? (
                 <button
+                   onClick={(e) => {
+                    e.stopPropagation();
+                   
+                  }}
                   type="button"
                   className="bg-teal-300 opacity-100 hover:opacity-70 text-white  font-bold w-[3rem] h-[3rem] flex flex-col justify-center items-center px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                 >
@@ -96,7 +100,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   className="bg-teal-300 opacity-100 hover:opacity-70  text-white font-bold px-5 py-1 flex flex-col justify-center items-center w-[3rem] h-[3rem] text-base rounded-full hover:shadow-md outline-none p-2"
                   title="Amei"
                 >
-                 <p className="text-xs">Amei</p> <RiHeartsFill fon/>
+                 <p className="text-xs">Amei</p> <RiHeartsFill/>
                 </button>
               )}
             </div>
