@@ -16,7 +16,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 
 
 
-  const alreadySaved = !!(save?.filter((item) => item?.postedBy?._id === user?.googleId))?.lenght;
+  const alreadySaved = !!(save?.filter((item) => item?.postedBy?._id === user?.googleId))?.length;
  
 
   const savePin = (id) => {
