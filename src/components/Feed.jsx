@@ -35,7 +35,7 @@ const Feed = () => {
     },[categoryId])
 
     if(loading) return <Spinner message="Estamos carregando novas idéias, aguarde um momento"/>
-
+    
 
     return (
         <div>

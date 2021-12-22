@@ -28,7 +28,7 @@ const Search = ({ searchTerm }) => {
   return (
     <div>
 
-      {loading && <Spinner message="Searching pins" />}
+      {loading && <Spinner message="Procurando tema" />}
       {pins?.length !== 0 && <MasonryLayout pins={pins} />}
       {pins?.length === 0 && searchTerm !== '' && !loading && (
         <div className="mt-10 text-center text-xl ">Sem resultados, seja o primeiro a compartilhar o tema pesquisado!</div>
