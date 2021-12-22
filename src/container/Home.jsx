@@ -5,7 +5,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import { SideBar, UserProfile } from "../components";
 import Pins from "./Pins";
 import { client } from "../cliente";
-import Logo from "../assets/logo.png";
 import { userQuery } from "../utils/data";
 import { fetchUser } from "../utils/fetchUser";
 
@@ -27,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
   }, []);
-
+  console.log(user)
   return (
       
     <div className="flex bg gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out">
@@ -41,10 +40,8 @@ const Home = () => {
             className="cursor-pointer"
             onClick={() => setToggleSideBar(true)}
           />
-          <Link to="/">
-            <img src={Logo} alt="logo" className="w-16" />
-          </Link>
-          <Link to={`user-profile/${user?.id}`}>
+         
+          <Link to={`user-profile/${user?._id}`}>
             <img src={user?.image} alt="logo" className="w-10 rounded-full" />
           </Link>
         </div>
